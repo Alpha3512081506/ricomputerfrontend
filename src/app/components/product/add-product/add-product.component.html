@@ -1,0 +1,137 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <form>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="inputProductId">ProductId:</label>
+          <div class="col-sm-10">
+            <input class="form-control" id="inputProductId" placeholder="ProductId" type="text">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputProductName" class="col-sm-2 col-form-label">ProductName:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputProductName" placeholder="ProductName">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Category:</label>
+          <select class="form-select ">
+            <option selected>Select Category</option>
+            <option value="1">Computer</option>
+            <option value="2">Cavi</option>
+            <option value="3">Dischi</option>
+          </select>
+          <button button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal"> <i
+              class="fa fa-plus"></i> </button>
+        </div>
+        <div class="form-group row">
+          <label for="inputProductLocation" class="col-sm-2 col-form-label">Location:</label>
+          <select class="form-select ">
+            <option selected>Select Location</option>
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+          </select>
+          <button class="btn btn-secondary ml-4"> <i class="fa fa-plus"></i> </button>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputCurrentQuantity" class="col-sm-2 col-form-label">CurrentQuantity:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputCurrentQuantity" placeholder="currentQuantity">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputAlertQuantity" class="col-sm-2 col-form-label">AlertQuantity:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="inputAlertQuantity" placeholder="alertQuantity">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputCustomeField1" class="col-sm-2 col-form-label">CustomeFied1:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCustomeField1" placeholder="inputCustomeField1">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputCustomeField2" class="col-sm-2 col-form-label">CustomeFied2:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputCustomeField2" placeholder="customeFied2">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputCustomeField2" class="col-sm-2 col-form-label">Date:</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="inputCustomeField2" placeholder="customeFied2">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="form-group">
+            <label for="inputNote" class="col-sm-2 col-form-label">Note:</label>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5"></textarea>
+          </div>
+        </div>
+
+
+
+
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col">
+
+
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form class="mt-5">
+                <div class="form-group row">
+                  <label for="inputCategoryId" class="col-sm-2 col-form-label">CategoryId:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputCategoryId" placeholder="CategoryId">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputCategoryName" class="col-sm-2 col-form-label">CategoryName:</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputCategoryName" placeholder="CategoryName">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="container">
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <ul class="navbar-nav">
+      <li> <button (click)="onGetAllProduct()" class="btn btn-outline-info ml-4">All</button></li>
+      <li> <button (click)="onGetSelectedProducts()" class="btn btn-outline-info ml-4">Selected</button></li>
+      <li> <button (click)="onGetAvallableProducts()" class="btn btn-outline-info ml-4">Avallable</button></li>
+      <li> <button (click)="onGetTest()" class="btn btn-outline-info ml-4">Test</button></li>
+      <li> <button (click)="onNewProduct()" class="btn btn-outline-info ml-4">addProduct</button></li>
+
+    </ul>
+    <!-- <ul class="navbar navbar-nav ml-auto">
+      <li>
+        <form #f="ngForm" (ngSubmit)="onSearch(f.value)" class="form-inline ">
+          <input type="text" ngModel name="keyword" class=" form-check-input">
+          <button class="btn btn-sm btn-outline-info ml-2">
+            <i class="fa fa-search"></i>
+
+          </button>
+
+
+        </form>
+      </li>
+    </ul> -->
+  </nav>
+
+  <ng-container *ngIf="(products$ |async) as resultat" [ngSwitch]="resultat.DataState">
+    <ng-container *ngSwitchCase="DataStateEnum.LOADING">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+        <path fill="#C779D0"
+          d="M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z">
+          <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.5s"
+            repeatCount="indefinite" />
+        </path>
+      </svg><svg width="51px" height="50px" viewBox="0 0 51 50">
+        <rect y="0" width="13" height="50" fill="#1fa2ff">
+          <animate attributeName="height" values="50;10;50" begin="0s" dur="1s" repeatCount="indefinite" />
+          <animate attributeName="y" values="0;20;0" begin="0s" dur="1s" repeatCount="indefinite" />
+        </rect>
+
+        <rect x="19" y="0" width="13" height="50" fill="#12d8fa">
+          <animate attributeName="height" values="50;10;50" begin="0.2s" dur="1s" repeatCount="indefinite" />
+          <animate attributeName="y" values="0;20;0" begin="0.2s" dur="1s" repeatCount="indefinite" />
+        </rect>
+
+        <rect x="38" y="0" width="13" height="50" fill="#06ffcb">
+          <animate attributeName="height" values="50;10;50" begin="0.4s" dur="1s" repeatCount="indefinite" />
+          <animate attributeName="y" values="0;20;0" begin="0.4s" dur="1s" repeatCount="indefinite" />
+        </rect>
+
+      </svg>
+
+    </ng-container>
+    <ng-container *ngSwitchCase="DataStateEnum.ERROR">
+
+      <div class="alert alert-danger">
+        <h2>Impossible de trouver le server</h2>
+        <strong> <strong>{{resultat.errorMessage}}</strong>!</strong>
+      </div>
+
+
+    </ng-container>
+
+    <ng-container *ngSwitchCase="DataStateEnum.LOADED">
+      <table class="table mt-2">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th (click)="clickfield()">price</th>
+            <th>selected</th>
+            <th>quantite</th>
+            <th>Avallable</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of resultat.data">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.selected}}</td>
+            <td>{{product.quantita}}</td>
+            <td>{{product.avallable}}</td>
+            <td><button (click)="onSelected(product)" class="btn btn-sm btn-outline-primary"><i
+                  class="fa fa-send-o"></i></button></td>
+            <td><button (click)="onDelete(product)" class="btn btn-sm btn-outline-danger"><i
+                  class="fa fa-trash-o"></i></button></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </ng-container>
+  </ng-container>
+</div>
